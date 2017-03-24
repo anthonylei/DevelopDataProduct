@@ -1,0 +1,46 @@
+---
+title: "Developing Data Products"
+subtitle: "Final Projct - Cumulative Stock Return Analysis"
+author: "Anthony Lei"
+date: "December 26, 2016"
+output: ioslides_presentation
+framework: io2012
+highlighter: highlight.js
+widgets: [mathjax, quiz, bootstrap]
+mode: selfcontained
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Application Overiew & Motivation
+There are quite a few website provide financial information of public traded companies, for example google finance, finviz.com. They are great at sharing a snapshot of a company's current financial information and historical price, however, often times, lack of comparision to benchmark and historical performance in terms of returns. This application focus on comparing the cumulative return of a public traded company to it's benchmark ex, S&P 500 index/ETF. The application clearly visualizes the stock performance of a company and its benchmark.
+
+Individual stock & Benchmark - Return Analysis:
+<http://returns.shinyapps.io/ShinyApp/>.
+
+## Application Input:
+
+- Ticker: The stock quote to analyze (It only takes US publicaly traded companies.)
+- Benchmark: The compirasion, often times, S&P 500 is used to compare large cap companies (market capitalization larger than $5 billion.)
+- Start Date: the first day of the comparision.
+- End Date: the last day of the comparision.
+
+## Application Output:
+
+- Cumulative Return: Discrete cumulative percentage return of the invesment, ex, 1 equals to 100% return.
+- Daily Return: Percentage return per day
+- Drawdown: Percentage (negative) return since the lastest new high.
+
+
+## Application Requirement for local deployment:
+
+Please make sure quantmod and PerformanceAnalytics is installed.
+```{r echo = TRUE, comment=NA, message= FALSE, warning=FALSE, error=FALSE}
+library(quantmod)
+library(PerformanceAnalytics)
+```
+
+## Acknowledgement
+Thank Ryan etal. for building quantmod and Peterson etal. for building PerformanceAnalytics. Without their fabulous packages, this application would not have been possible.
